@@ -203,7 +203,9 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-main shell">
         <div>
-          <a className="footer-brand" href="#top">Katch<span aria-hidden="true" /></a>
+          <a className="footer-brand" href="#top" aria-label="Katch home">
+            <img src="/katch-logo.webp" alt="Katch" width="1310" height="328" />
+          </a>
           <p>Websites that make businesses impossible to ignore.</p>
         </div>
         <nav aria-label="Footer navigation">

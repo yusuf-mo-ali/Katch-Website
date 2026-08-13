@@ -303,21 +303,19 @@ ol {
 
 .brand {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 0.12rem;
-  font-size: 1.32rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.06em;
 }
 
-.brand-dot,
-.footer-brand span {
-  width: 0.34em;
-  height: 0.34em;
-  margin-top: 0.52em;
-  border-radius: 50%;
-  background: var(--accent);
+.brand-logo {
+  width: clamp(6.6rem, 8vw, 7.6rem);
+  height: auto;
+  transition: filter 280ms ease;
+}
+
+.site-header:not(.site-header--scrolled) .brand-logo,
+.site-header:has(.mobile-menu--open) .brand-logo {
+  filter: invert(1);
 }
 
 .desktop-nav {
@@ -1874,13 +1872,14 @@ ol {
 }
 
 .footer-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.12rem;
-  font-size: clamp(3.2rem, 6vw, 7rem);
-  font-weight: 600;
-  line-height: 0.85;
-  letter-spacing: -0.075em;
+  display: inline-block;
+  width: clamp(13rem, 24vw, 24rem);
+}
+
+.footer-brand img {
+  width: 100%;
+  height: auto;
+  filter: invert(1);
 }
 
 .footer-main > div > p {

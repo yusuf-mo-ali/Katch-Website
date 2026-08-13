@@ -31,7 +31,7 @@ export function Header() {
     <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''}`}>
       <div className="header-inner shell">
         <a className="brand" href="#top" aria-label="Katch home" onClick={closeMenu}>
-          Katch<span className="brand-dot" aria-hidden="true" />
+          <img className="brand-logo" src="/katch-logo.webp" alt="Katch" width="1310" height="328" />
         </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
