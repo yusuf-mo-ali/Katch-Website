@@ -1,0 +1,12 @@
+{
+  "name": "Katch",
+  "short_name": "Katch",
+  "description": "Modern websites that make businesses impossible to ignore.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#11110f",
+  "theme_color": "#11110f",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
