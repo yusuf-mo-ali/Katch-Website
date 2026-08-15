@@ -681,12 +681,12 @@ ol {
   background: var(--ink);
 }
 
-/* Work */
-.work {
+/* Demos */
+.demos {
   background: var(--paper);
 }
 
-.work-grid {
+.demo-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(4.5rem, 9vw, 10rem) clamp(1.4rem, 3.5vw, 4rem);
@@ -1857,7 +1857,7 @@ ol {
   font-weight: 700;
 }
 
-.work-page-grid {
+.demos-page-grid {
   padding-top: clamp(5rem, 8vw, 8rem);
 }
 
@@ -2755,7 +2755,7 @@ ol {
     font-size: 0.64rem;
   }
 
-  .work-grid {
+  .demo-grid {
     grid-template-columns: 1fr;
     gap: 5rem;
   }

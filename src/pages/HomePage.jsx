@@ -3,7 +3,7 @@ import { ClientCTA } from '../components/Contact';
 import { Hero, ValueStrip } from '../components/Hero';
 import { PageFrame } from '../components/PageFrame';
 import { PageMeta } from '../components/PageMeta';
-import { SelectedWorkPreview } from '../components/Work';
+import { SelectedDemosPreview } from '../components/Demos';
 
 export default function HomePage() {
   return (
@@ -15,7 +15,7 @@ export default function HomePage() {
       />
       <Hero />
       <ValueStrip />
-      <SelectedWorkPreview />
+      <SelectedDemosPreview />
       <ServicesPreview />
       <WhyKatch />
       <ProcessPreview />

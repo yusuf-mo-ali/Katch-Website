@@ -19,7 +19,7 @@ export function Hero() {
           </div>
           <div className="hero-actions">
             <ButtonLink href="/contact">Start a Project</ButtonLink>
-            <ButtonLink href="/work" variant="text">View Our Work</ButtonLink>
+            <ButtonLink href="/demos" variant="text">View Our Demos</ButtonLink>
           </div>
         </div>
 
@@ -29,7 +29,7 @@ export function Hero() {
           <div className="project-window project-window--main">
             <div className="window-bar">
               <div className="window-dots" aria-hidden="true"><i /><i /><i /></div>
-              <span>Recent launch / Restaurant</span>
+              <span>Live demo / Restaurant</span>
               <ArrowUpRight aria-hidden="true" size={15} />
             </div>
             <div className="window-media">
@@ -56,7 +56,7 @@ export function Hero() {
       </div>
 
       <div className="hero-footer shell">
-        <a href="#selected-work" className="scroll-cue">
+        <a href="#selected-demos" className="scroll-cue">
           <ArrowDown aria-hidden="true" size={16} />
           Scroll to explore
         </a>

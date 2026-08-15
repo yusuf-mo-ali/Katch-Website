@@ -45,7 +45,7 @@ export const services = [
     title: 'Portfolio Websites',
     summary: 'Editorial websites that present work clearly without competing with it.',
     forWho: 'Studios, architects, photographers, designers, and independent professionals.',
-    delivers: 'Project structure, case-study templates, visual direction, development, and easy content patterns.',
+    delivers: 'Project structure, project-detail templates, visual direction, development, and easy content patterns.',
     benefit: 'Your best work becomes easier to understand, trust, and share.',
     group: 'Websites',
   },

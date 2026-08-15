@@ -24,7 +24,7 @@ export default function AboutPage() {
         title={<>Good design gets noticed.<br /><em>Useful design gets results.</em></>}
         intro="Katch helps businesses turn what makes them worth choosing into a website people can understand, trust, and act on."
         primary={{ href: '/contact', label: 'Start a Project' }}
-        secondary={{ href: '/work', label: 'View Our Work' }}
+        secondary={{ href: '/demos', label: 'View Our Demos' }}
       />
 
       <section className="about-story section" aria-labelledby="about-story-title">

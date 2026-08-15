@@ -5,7 +5,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { freezeScrollPosition } from '../utils/scrollStore';
 
 const navItems = [
-  ['Work', '/work'],
+  ['Demos', '/demos'],
   ['Services', '/services'],
   ['Process', '/process'],
   ['About', '/about'],

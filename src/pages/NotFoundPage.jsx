@@ -18,7 +18,7 @@ export default function NotFoundPage() {
           <p>The page may have moved, or the address may not be quite right.</p>
           <div className="not-found-actions">
             <ButtonLink href="/">Back Home</ButtonLink>
-            <ButtonLink href="/work" variant="text">View Our Work</ButtonLink>
+            <ButtonLink href="/demos" variant="text">View Our Demos</ButtonLink>
           </div>
         </div>
       </section>

@@ -21,7 +21,7 @@ export default function ServicesPage() {
         title={<>The right build for<br /><em>the job at hand.</em></>}
         intro="Katch combines strategy, design, development, and practical integrations to give businesses a website that earns attention and supports action."
         primary={{ href: '/contact', label: 'Start a Project' }}
-        secondary={{ href: '/work', label: 'View Our Work' }}
+        secondary={{ href: '/demos', label: 'View Our Demos' }}
       />
 
       <div className="service-directory section">

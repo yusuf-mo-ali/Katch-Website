@@ -1,7 +1,7 @@
 {
   "rewrites": [
-    { "source": "/work", "destination": "/index.html" },
-    { "source": "/work/:path*", "destination": "/index.html" },
+    { "source": "/demos", "destination": "/index.html" },
+    { "source": "/demos/:path*", "destination": "/index.html" },
     { "source": "/services", "destination": "/index.html" },
     { "source": "/process", "destination": "/index.html" },
     { "source": "/about", "destination": "/index.html" },

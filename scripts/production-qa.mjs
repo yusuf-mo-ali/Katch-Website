@@ -25,12 +25,12 @@ async function openPage(path, viewport) {
   return { page, errors };
 }
 
-const primaryRoutes = ['/', '/work', '/services', '/process', '/about', '/contact'];
+const primaryRoutes = ['/', '/demos', '/services', '/process', '/about', '/contact'];
 const caseRoutes = [
-  '/work/smash-burger',
-  '/work/bta3-7awa4y',
-  '/work/raw',
-  '/work/refined-artistry',
+  '/demos/smash-burger',
+  '/demos/bta3-7awa4y',
+  '/demos/raw',
+  '/demos/refined-artistry',
 ];
 const widths = [320, 360, 375, 390, 414, 768, 820, 1024, 1280, 1440, 1920];
 
@@ -151,10 +151,10 @@ notes.push('Mobile menu passed top, 25%, 50%, and near-bottom checks');
   check((await page.locator('.mobile-nav-layer--open').count()) === 0, 'Outside click did not close menu');
 
   await page.locator('.menu-toggle').click();
-  await page.locator('.mobile-nav-links a').filter({ hasText: 'Work' }).click();
+  await page.locator('.mobile-nav-links a').filter({ hasText: 'Demos' }).click();
   await page.locator('.page-hero h1').waitFor();
   await page.waitForTimeout(120);
-  check(new URL(page.url()).pathname === '/work', 'Mobile Work link did not navigate to /work');
+  check(new URL(page.url()).pathname === '/demos', 'Mobile Demos link did not navigate to /demos');
   check((await page.locator('.mobile-nav-layer--open').count()) === 0, 'Menu did not close after route navigation');
   check((await page.evaluate(() => window.scrollY)) <= 1, 'New route did not start at top');
   check((await page.locator('.desktop-nav a.is-active').count()) === 1, 'Active navigation state missing');
@@ -169,7 +169,7 @@ notes.push('Mobile menu outside click, focus, Escape, repeat, and navigation pas
   await page.evaluate(() => window.scrollTo(0, 1100));
   await page.waitForTimeout(100);
   const previousScroll = await page.evaluate(() => window.scrollY);
-  await page.locator('.desktop-nav a').filter({ hasText: 'Work' }).click();
+  await page.locator('.desktop-nav a').filter({ hasText: 'Demos' }).click();
   await page.locator('.page-hero h1').waitFor();
   await page.waitForTimeout(160);
   check((await page.evaluate(() => window.scrollY)) <= 1, 'Push navigation did not reset scroll');
@@ -178,7 +178,7 @@ notes.push('Mobile menu outside click, focus, Escape, repeat, and navigation pas
   const restoredScroll = await page.evaluate(() => window.scrollY);
   check(Math.abs(restoredScroll - previousScroll) < 60, `Back navigation did not restore scroll ${previousScroll}/${restoredScroll}`);
   await page.goForward({ waitUntil: 'networkidle' });
-  check(new URL(page.url()).pathname === '/work', 'Forward navigation failed');
+  check(new URL(page.url()).pathname === '/demos', 'Forward navigation failed');
   await page.close();
 }
 notes.push('Scroll restoration and browser history passed');

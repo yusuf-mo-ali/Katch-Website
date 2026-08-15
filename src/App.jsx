@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SiteLayout } from './components/SiteLayout';
 import HomePage from './pages/HomePage';
 
-const WorkPage = lazy(() => import('./pages/WorkPage'));
-const CaseStudyPage = lazy(() => import('./pages/CaseStudyPage'));
+const DemosPage = lazy(() => import('./pages/DemosPage'));
+const DemoDetailsPage = lazy(() => import('./pages/DemoDetailsPage'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const ProcessPage = lazy(() => import('./pages/ProcessPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
@@ -22,8 +22,8 @@ export default function App() {
         <Routes>
           <Route element={<SiteLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="work" element={<WorkPage />} />
-            <Route path="work/:projectId" element={<CaseStudyPage />} />
+            <Route path="demos" element={<DemosPage />} />
+            <Route path="demos/:projectId" element={<DemoDetailsPage />} />
             <Route path="services" element={<ServicesPage />} />
             <Route path="process" element={<ProcessPage />} />
             <Route path="about" element={<AboutPage />} />

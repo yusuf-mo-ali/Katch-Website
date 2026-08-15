@@ -33,7 +33,7 @@ export function ClientCTA() {
         </div>
         <div className="client-cta-actions">
           <ButtonLink href="/contact" variant="dark">Start a Project</ButtonLink>
-          <ButtonLink href="/work" variant="dark-text">View Our Work</ButtonLink>
+          <ButtonLink href="/demos" variant="dark-text">View Our Demos</ButtonLink>
         </div>
       </div>
     </section>

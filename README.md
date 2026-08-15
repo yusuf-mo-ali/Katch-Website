@@ -14,11 +14,11 @@ A launch-ready React/Vite website for Katch, built to generate qualified project
 ## Routes
 
 - `/` — conversion-focused homepage
-- `/work` — complete selected-work portfolio
-- `/work/smash-burger`
-- `/work/bta3-7awa4y`
-- `/work/raw`
-- `/work/refined-artistry`
+- `/demos` — complete live demo gallery
+- `/demos/smash-burger`
+- `/demos/bta3-7awa4y`
+- `/demos/raw`
+- `/demos/refined-artistry`
 - `/services` — complete service directory
 - `/process` — detailed four-stage process
 - `/about` — positioning, beliefs, and technology approach
@@ -34,8 +34,8 @@ Production rewrites are configured in `vercel.json`; `public/_redirects` provide
 - Body scroll locking and exact scroll restoration when menus close
 - Escape, outside-click, navigation-link, and repeated-open handling
 - Keyboard focus trapping and clear active navigation states
-- Editorial project grid using captures of the four real live projects
-- Dedicated, refresh-safe case-study routes
+- Editorial demo grid using captures of the four live Katch demos
+- Dedicated, refresh-safe demo-detail routes
 - Structured services, process, about, contact, and 404 pages
 - Validated project request form with honeypot protection
 - Vercel/Resend contact endpoint with size validation, origin allowlist, and rate limiting
@@ -73,7 +73,7 @@ To test another server:
 QA_BASE_URL=https://your-preview-domain.com npm run qa
 ```
 
-The QA matrix covers every primary route at 320, 360, 375, 390, 414, 768, 820, 1024, 1280, 1440, and 1920 pixels; all case-study routes; direct refresh; 404 behavior; horizontal overflow; broken images; console errors; mobile menu behavior at four scroll positions; body scroll restoration; focus trapping; Escape/outside click; browser history; exact budget selection; form validation; and success UI.
+The QA matrix covers every primary route at 320, 360, 375, 390, 414, 768, 820, 1024, 1280, 1440, and 1920 pixels; all demo-detail routes; direct refresh; 404 behavior; horizontal overflow; broken images; console errors; mobile menu behavior at four scroll positions; body scroll restoration; focus trapping; Escape/outside click; browser history; exact budget selection; form validation; and success UI.
 
 ## Make the contact form live
 
@@ -114,7 +114,7 @@ Then update `ALLOWED_ORIGINS` and run a fresh production build.
 
 ## Updating content
 
-- Projects and case studies: `src/data/projects.js`
+- Demo content and detail narratives: `src/data/projects.js`
 - Services and process: `src/data/services.js`
 - Route pages: `src/pages/`
 - Shared components: `src/components/`
