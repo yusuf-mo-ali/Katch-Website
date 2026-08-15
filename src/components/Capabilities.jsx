@@ -1,49 +1,17 @@
 import { ArrowDownRight, Bot, Gauge, LayoutTemplate, RefreshCcw, ShoppingBag, Target } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { processSteps, services } from '../data/services';
 
-const services = [
-  {
-    number: '01',
-    title: 'Business Websites',
-    copy: 'Modern websites designed to establish credibility and generate leads.',
-    note: 'Company sites · Portfolios · Restaurants',
-    Icon: LayoutTemplate,
-  },
-  {
-    number: '02',
-    title: 'Landing Pages',
-    copy: 'Focused pages designed around one clear conversion goal.',
-    note: 'Campaigns · Products · Lead generation',
-    Icon: Target,
-  },
-  {
-    number: '03',
-    title: 'E-commerce',
-    copy: 'Premium online stores that make discovering and buying products simple.',
-    note: 'Shopify · Custom storefronts · Catalogues',
-    Icon: ShoppingBag,
-  },
-  {
-    number: '04',
-    title: 'Website Redesign',
-    copy: 'Turn outdated websites into modern, responsive experiences.',
-    note: 'UX audit · Visual refresh · Rebuild',
-    Icon: RefreshCcw,
-  },
-  {
-    number: '05',
-    title: 'AI & Automation',
-    copy: 'Integrate AI tools and automation to reduce repetitive work and improve customer experience.',
-    note: 'Chatbots · Workflows · Integrations',
-    Icon: Bot,
-  },
-  {
-    number: '06',
-    title: 'Performance & SEO',
-    copy: 'Improve speed, technical SEO, accessibility, and overall website quality.',
-    note: 'Core Web Vitals · Analytics · Maintenance',
-    Icon: Gauge,
-  },
-];
+const iconByService = {
+  'business-websites': LayoutTemplate,
+  'landing-pages': Target,
+  ecommerce: ShoppingBag,
+  'website-redesign': RefreshCcw,
+  'ai-integration': Bot,
+  performance: Gauge,
+};
+
+const previewServices = [services[0], services[1], services[2], services[7]];
 
 const principles = [
   ['01', 'Strategy First', 'We design around the business goal, not just aesthetics.'],
@@ -52,41 +20,37 @@ const principles = [
   ['04', 'Designed to Convert', 'Clear structure, strong CTAs, and intuitive UX guide visitors toward action.'],
 ];
 
-const steps = [
-  ['01', 'Discover', 'Understand the business, audience, goals, and problems.'],
-  ['02', 'Design', 'Create the visual direction, structure, and user experience.'],
-  ['03', 'Build', 'Develop the website with modern, maintainable technology.'],
-  ['04', 'Launch', 'Test, optimize, deploy, and provide ongoing support.'],
-];
-
-export function Services() {
+export function ServicesPreview() {
   return (
-    <section className="services section section--dark" id="services" aria-labelledby="services-title">
+    <section className="services section section--dark" aria-labelledby="services-preview-title">
       <div className="section-heading section-heading--light shell reveal">
         <div>
           <p className="eyebrow">Capabilities</p>
-          <h2 id="services-title">What We Build</h2>
+          <h2 id="services-preview-title">What We Build</h2>
         </div>
         <p>The right website, shaped around the job your business needs it to do.</p>
       </div>
-      <div className="services-grid shell">
-        {services.map(({ number, title, copy, note, Icon }) => (
-          <article className="service-card reveal" key={title}>
-            <div className="service-top">
-              <span>{number}</span>
-              <Icon aria-hidden="true" strokeWidth={1.5} />
-            </div>
-            <div>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </div>
-            <p className="service-note">{note}</p>
-          </article>
-        ))}
+      <div className="services-grid services-grid--preview shell">
+        {previewServices.map((service) => {
+          const Icon = iconByService[service.id] || LayoutTemplate;
+          return (
+            <article className="service-card reveal" key={service.id}>
+              <div className="service-top">
+                <span>{service.number}</span>
+                <Icon aria-hidden="true" strokeWidth={1.5} />
+              </div>
+              <div>
+                <h3>{service.title}</h3>
+                <p>{service.summary}</p>
+              </div>
+              <p className="service-note">{service.forWho}</p>
+            </article>
+          );
+        })}
       </div>
       <div className="services-footer shell reveal">
-        <p>Also available: SEO basics, analytics setup, performance optimization, and ongoing website maintenance.</p>
-        <a href="#contact">Discuss your project <ArrowDownRight aria-hidden="true" size={17} /></a>
+        <p>From focused landing pages to complete stores, automation, SEO, analytics, and long-term support.</p>
+        <Link to="/services">View Services <ArrowDownRight aria-hidden="true" size={17} /></Link>
       </div>
     </section>
   );
@@ -94,7 +58,7 @@ export function Services() {
 
 export function WhyKatch() {
   return (
-    <section className="why section" id="about" aria-labelledby="why-title">
+    <section className="why section" aria-labelledby="why-title">
       <div className="why-layout shell">
         <div className="why-intro reveal">
           <p className="eyebrow">Why Katch</p>
@@ -115,23 +79,26 @@ export function WhyKatch() {
   );
 }
 
-export function Process() {
+export function ProcessPreview() {
   return (
-    <section className="process section" id="process" aria-labelledby="process-title">
+    <section className="process section" aria-labelledby="process-preview-title">
       <div className="process-heading shell reveal">
         <p className="eyebrow">How we work</p>
-        <h2 id="process-title">A clear process.<br /><em>No mystery.</em></h2>
+        <h2 id="process-preview-title">A clear process.<br /><em>No mystery.</em></h2>
         <p>Four focused stages keep the project moving, decisions clear, and the final result aligned with the business.</p>
       </div>
       <div className="process-list shell">
-        {steps.map(([number, title, copy]) => (
-          <article className="process-step reveal" key={title}>
-            <span className="step-number">{number}</span>
-            <h3>{title}</h3>
-            <p>{copy}</p>
+        {processSteps.map((step) => (
+          <article className="process-step reveal" key={step.title}>
+            <span className="step-number">{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.summary}</p>
             <span className="step-progress" aria-hidden="true"><i /></span>
           </article>
         ))}
+      </div>
+      <div className="process-preview-link shell reveal">
+        <Link to="/process">View Process <ArrowDownRight aria-hidden="true" /></Link>
       </div>
     </section>
   );

@@ -1,54 +1,38 @@
-import { useEffect } from 'react';
-import { Header } from './components/Header';
-import { Hero, ValueStrip } from './components/Hero';
-import { Work } from './components/Work';
-import { Process, Services, Technology, WhyKatch } from './components/Capabilities';
-import { ClientCTA, Contact, Footer } from './components/Contact';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { SiteLayout } from './components/SiteLayout';
+import HomePage from './pages/HomePage';
 
-function useScrollReveal() {
-  useEffect(() => {
-    const elements = Array.from(document.querySelectorAll('.reveal'));
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
-      elements.forEach((element) => element.classList.add('is-visible'));
-      return undefined;
-    }
+const WorkPage = lazy(() => import('./pages/WorkPage'));
+const CaseStudyPage = lazy(() => import('./pages/CaseStudyPage'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const ProcessPage = lazy(() => import('./pages/ProcessPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
-    );
-
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
-  }, []);
+function RouteLoading() {
+  return <div className="route-loading" aria-label="Loading page" />;
 }
 
 export default function App() {
-  useScrollReveal();
-
   return (
-    <>
-      <a className="skip-link" href="#main-content">Skip to content</a>
-      <Header />
-      <main id="main-content">
-        <Hero />
-        <ValueStrip />
-        <Work />
-        <Services />
-        <WhyKatch />
-        <Process />
-        <Technology />
-        <ClientCTA />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Suspense fallback={<RouteLoading />}>
+        <Routes>
+          <Route element={<SiteLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="work" element={<WorkPage />} />
+            <Route path="work/:projectId" element={<CaseStudyPage />} />
+            <Route path="services" element={<ServicesPage />} />
+            <Route path="process" element={<ProcessPage />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="404" element={<NotFoundPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   );
 }

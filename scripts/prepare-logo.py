@@ -60,6 +60,8 @@ def extract(crop, include_triangle=True, dark_x_bounds=None):
 logo = extract(CROP)
 logo.save(PUBLIC / "katch-logo.png", optimize=True)
 logo.save(PUBLIC / "katch-logo.webp", "WEBP", lossless=True, method=6)
+small_logo = logo.resize((262, 66), Image.Resampling.LANCZOS)
+small_logo.save(PUBLIC / "katch-logo-sm.webp", "WEBP", lossless=True, method=6)
 
 # Create a square brand mark from the central shape for browser and device icons.
 mark_crop = (395, 598, 744, 930)

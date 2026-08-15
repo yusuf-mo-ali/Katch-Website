@@ -18,8 +18,8 @@ export function Hero() {
             <p className="hero-audience">For ambitious businesses, brands, and growing teams.</p>
           </div>
           <div className="hero-actions">
-            <ButtonLink href="#contact">Start a Project</ButtonLink>
-            <ButtonLink href="#work" variant="text">View Our Work</ButtonLink>
+            <ButtonLink href="/contact">Start a Project</ButtonLink>
+            <ButtonLink href="/work" variant="text">View Our Work</ButtonLink>
           </div>
         </div>
 
@@ -35,7 +35,7 @@ export function Hero() {
             <div className="window-media">
               <img
                 src="/projects/smash-preview.webp"
-                srcSet="/projects/smash-preview-sm.webp 760w, /projects/smash-preview.webp 1440w"
+                srcSet="/projects/smash-preview-xs.webp 480w, /projects/smash-preview-sm.webp 760w, /projects/smash-preview.webp 1440w"
                 sizes="(max-width: 820px) 92vw, 42vw"
                 alt="Homepage preview of the Smash Burger restaurant website"
                 width="1440"
@@ -56,7 +56,7 @@ export function Hero() {
       </div>
 
       <div className="hero-footer shell">
-        <a href="#work" className="scroll-cue">
+        <a href="#selected-work" className="scroll-cue">
           <ArrowDown aria-hidden="true" size={16} />
           Scroll to explore
         </a>

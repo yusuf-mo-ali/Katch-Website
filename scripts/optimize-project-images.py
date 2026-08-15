@@ -16,5 +16,14 @@ for source in PROJECTS.glob("*-preview.jpg"):
         quality=78,
         method=6,
     )
+
+    extra_small = image.copy()
+    extra_small.thumbnail((480, 480), Image.Resampling.LANCZOS)
+    extra_small.save(
+        source.with_name(f"{source.stem}-xs.webp"),
+        "WEBP",
+        quality=77,
+        method=6,
+    )
     source.unlink()
     print(f"Optimized {source.name}")

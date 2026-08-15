@@ -7,22 +7,24 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
+    "qa": "node scripts/production-qa.mjs",
     "lint": "eslint .",
     "audit:production": "npm run lint && npm run build"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "latest",
     "lucide-react": "latest",
-    "vite": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-router-dom": "^7.18.2"
   },
   "devDependencies": {
     "@eslint/js": "latest",
+    "@vitejs/plugin-react": "^6.0.5",
     "eslint": "latest",
     "eslint-plugin-react-hooks": "latest",
     "eslint-plugin-react-refresh": "latest",
     "globals": "latest",
-    "playwright": "latest"
+    "playwright": "latest",
+    "vite": "^8.2.1"
   }
 }

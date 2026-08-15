@@ -32,15 +32,15 @@ export function ClientCTA() {
           <p>Let&apos;s build a website that does it justice.</p>
         </div>
         <div className="client-cta-actions">
-          <ButtonLink href="#contact" variant="dark">Start a Project</ButtonLink>
-          <ButtonLink href="#work" variant="dark-text">View Our Work</ButtonLink>
+          <ButtonLink href="/contact" variant="dark">Start a Project</ButtonLink>
+          <ButtonLink href="/work" variant="dark-text">View Our Work</ButtonLink>
         </div>
       </div>
     </section>
   );
 }
 
-export function Contact() {
+export function ContactForm() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle');
@@ -57,10 +57,10 @@ export function Contact() {
     const nextErrors = validate(form);
     setErrors(nextErrors);
     setServerMessage('');
+
     if (Object.keys(nextErrors).length > 0) {
       setStatus('error');
-      const firstInvalid = event.currentTarget.querySelector(`[name="${Object.keys(nextErrors)[0]}"]`);
-      firstInvalid?.focus();
+      event.currentTarget.querySelector(`[name="${Object.keys(nextErrors)[0]}"]`)?.focus();
       return;
     }
 
@@ -85,11 +85,11 @@ export function Contact() {
   const fieldClass = (name) => `form-field ${errors[name] ? 'form-field--error' : ''}`;
 
   return (
-    <section className="contact section section--dark" id="contact" aria-labelledby="contact-title">
+    <section className="contact section section--dark" aria-labelledby="contact-title">
       <div className="contact-layout shell">
         <div className="contact-intro reveal">
           <p className="eyebrow">Start a project</p>
-          <h2 id="contact-title">Tell us what you&apos;re building.</h2>
+          <h1 id="contact-title">Tell us what you&apos;re building.</h1>
           <p>Share the essentials. We&apos;ll review your project and come back with the clearest next step.</p>
           <div className="contact-expectation">
             <span>What happens next</span>
@@ -106,9 +106,11 @@ export function Contact() {
             <div className="form-success" role="status">
               <CheckCircle2 aria-hidden="true" />
               <p className="eyebrow">Request received</p>
-              <h3>Thanks. Your project is on our radar.</h3>
+              <h2>Thanks. Your project is on our radar.</h2>
               <p>We&apos;ll review the details and follow up using the email you provided.</p>
-              <button type="button" onClick={() => setStatus('idle')}>Send another request <ArrowDownRight aria-hidden="true" /></button>
+              <button type="button" onClick={() => setStatus('idle')}>
+                Send another request <ArrowDownRight aria-hidden="true" />
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate>
@@ -139,7 +141,8 @@ export function Contact() {
                       <option>Portfolio Website</option>
                       <option>SaaS Website</option>
                       <option>Website Redesign</option>
-                      <option>AI & Automation</option>
+                      <option>AI Integration</option>
+                      <option>Business Automation</option>
                       <option>Maintenance / Optimization</option>
                       <option>Other</option>
                     </select>
@@ -152,11 +155,10 @@ export function Contact() {
                   <div className="select-wrap">
                     <select id="budget" name="budget" value={form.budget} onChange={update} aria-invalid={Boolean(errors.budget)} aria-describedby={errors.budget ? 'budget-error' : undefined}>
                       <option value="">Select a range</option>
-                      <option>Under $2,000</option>
-                      <option>$2,000 – $5,000</option>
-                      <option>$5,000 – $10,000</option>
-                      <option>$10,000+</option>
-                      <option>Not sure yet</option>
+                      <option>$200 or less</option>
+                      <option>$400 – $600</option>
+                      <option>$700 – $1,000</option>
+                      <option>$1,000+</option>
                     </select>
                     <ArrowDownRight aria-hidden="true" />
                   </div>
@@ -188,35 +190,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  );
-}
-
-export function Footer() {
-  const links = [
-    ['Home', '#top'],
-    ['Work', '#work'],
-    ['Services', '#services'],
-    ['Process', '#process'],
-    ['Contact', '#contact'],
-  ];
-  return (
-    <footer className="footer">
-      <div className="footer-main shell">
-        <div>
-          <a className="footer-brand" href="#top" aria-label="Katch home">
-            <img src="/katch-logo.webp" alt="Katch" width="1310" height="328" />
-          </a>
-          <p>Websites that make businesses impossible to ignore.</p>
-        </div>
-        <nav aria-label="Footer navigation">
-          {links.map(([label, href]) => <a href={href} key={label}>{label}</a>)}
-        </nav>
-        <a href="#top" className="back-top">Back to top <ArrowUpRight aria-hidden="true" /></a>
-      </div>
-      <div className="footer-bottom shell">
-        <p>© 2026 Katch. All rights reserved.</p>
-        <p>Strategy · Design · Development</p>
-      </div>
-    </footer>
   );
 }
